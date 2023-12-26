@@ -47,6 +47,7 @@ create.onclick = function(){
         category:category.value,
         total:total.innerHTML,
     }
+
 // count
     if(mood === 'create'){
         if(count.value > 1){
@@ -129,18 +130,21 @@ function showData(){
         }
     }
 }
+
 // Delete All
 function deleteAll(){
-    localStorage.clear()
+    localStorage.clear();
     dataPro.splice(0);
-    showData()
+    window.location.reload();
 }
+
 // Delete
 function deleteData(i){
     dataPro.splice(i, 1);
     localStorage.product = JSON.stringify(dataPro);
     showData()
 }
+
 // Update
 function updateData(i){
     mood = 'update';
@@ -156,6 +160,7 @@ function updateData(i){
     count.style.display = 'none';
     create.innerHTML = 'Update';
 }
+
 // Search
 function search(id){
     if(id == 'searchTitle'){
@@ -253,4 +258,4 @@ function searchData(value){
     }
 }
 
-showData()
+showData();
